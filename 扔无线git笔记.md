@@ -5,7 +5,7 @@
     - [```git clone```](#git-clone)
     - [```git log```](#git-log)
     - [```git add```](#git-add)
-    - [```git commit```(补充一些图)](#git-commit补充一些图)
+    - [```git commit```](#git-commit)
     - [```git push```](#git-push)
     - [```git fetch```](#git-fetch)
     - [```git merge```](#git-merge)
@@ -51,7 +51,7 @@
 
 - 需要注意的是，.gitignore只会忽略没有被添加到暂存区的文件，因为git存在本地缓存，如果文件已经纳入了版本管理，此时修改.gitignore文件是无效的
 
-### ```git commit```(补充一些图)
+### ```git commit```
 
 刚刚我们使用add指令添加了App.js到暂存区，现在我们感觉本次修改这些就足够了，那就可以将暂存区的文件包装一下形成一个commit，提交到我们**本地**的仓库：```git commit```，执行执行后会出现vim的编辑页面，我们可以按照vim的操作方式填写自己的commit信息：```feat：something```
 
