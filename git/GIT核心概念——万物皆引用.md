@@ -59,7 +59,7 @@
 
 刚刚我们使用add指令添加了App.js到暂存区，现在我们感觉本次修改这些就足够了，那就可以将暂存区的文件包装一下形成一个commit，提交到我们**本地**的仓库：```git commit```，执行执行后会出现vim的编辑页面，我们可以按照vim的操作方式填写自己的commit信息：```feat：something```（后面将其称之为commit01）
 
-![vim页面](pic/git/commit_vim.png)
+![vim页面](../pic/git/commit_vim.png)
 
 这个指令会将我们暂存区里的所有文件整合至一个commit中，目前是只有App.js，但如果暂存区还存在Home.js或者其他文件，也会被一次性整合到刚才的commit中
 
@@ -101,7 +101,7 @@ commit哈希的计算规则就决定了在一个项目中，每个commit的hash�
 
 刚才我们执行```git add```的时候，解释这个操作是将提交的内容放置暂存区。以下根据git官网上的图来解释其含义：
 
-![git官网图片](pic/git/GIT暂存区.png)
+![git官网图片](../pic/git/GIT暂存区.png)
 
 我们对代码变更的时候，基本可以分为以下几种变更：新增文件、删除文件、修改文件。git必须要对所有文件追踪，才可以知晓两个commit之间的变更内容，同事```git commit```操作就是将git追踪的所有变更包装为一个新的commit。
 
@@ -161,11 +161,11 @@ branch是一类代表分支的引用，像刚才提到的develop、origin/develo
 
 fast-forward合并前:
 
-![fast-forward合并前](pic/git/合并前.png)
+![fast-forward合并前](../pic/git/合并前.png)
 
 fast-forward合并后:
 
-![fast-forward合并后](pic/git/合并后.png)
+![fast-forward合并后](../pic/git/合并后.png)
 
 ### 冲突Conflict
 
@@ -173,17 +173,17 @@ fast-forward合并后:
 
 首先我们先解释下冲突为什么产生。假设我们修改一个文件的第九行，恰巧同事也修改这个文件的第九行，放置到了他的最新提交中。并且两个修改不相同，这个时候冲突就产生了。不是说我和同事产生了冲突（也不是不可能），而是**git无法区分应该应用哪个commit中的修改，当git无法做主的时候，选择权就会抛到我们手上，冲突会终止merge进程。直至我们解决冲突，继续合并**。
 
-![冲突的产生](pic/git/冲突的产生.png)
+![冲突的产生](../pic/git/冲突的产生.png)
 
 解释完冲突之后，我们再来看大多数的合并分支应该是什么样的。假设我们希望将feature1分支合并至develop分支，feature1分支存在自己的独特commit12，develop存在自己的独特commit13，两者合并后（不管有没有冲突）会生成新的commit14来表示这次合并操作。
 
 没有ff的合并前:
 
-![没有ff的合并前](pic/git/noff的合并前.png)
+![没有ff的合并前](../pic/git/noff的合并前.png)
 
 没有ff的合并后:
 
-![没有ff的合并后](pic/git/noff合并后.png)
+![没有ff的合并后](../pic/git/noff合并后.png)
 
 - 如果我们希望一个快速前进的合并不要快速合并，必须生成新的commit。可以使用指令```git merge --no-ff 分支名```，强制不采取fast-forward方式
 
@@ -199,11 +199,11 @@ clone的整个操作流程：首先取下远端仓库的所有分支（develop�
 
 clone操作的远端仓库:
 
-![clone操作的远端仓库](pic/git/回看gitclone-远端仓库.png)
+![clone操作的远端仓库](../pic/git/回看gitclone-远端仓库.png)
 
 clone操作的本地仓库:
 
-![clone操作的本地仓库](pic/git/回看gitclone-本地仓库.png)
+![clone操作的本地仓库](../pic/git/回看gitclone-本地仓库.png)
 
 ### 回看push操作
 
@@ -213,11 +213,11 @@ push的整个操作流程：首先将HEAD指向的引用推送至远端（develo
 
 push操作的本地仓库:
 
-![push操作的本地仓库](pic/git/push本质-本地仓库.png)
+![push操作的本地仓库](../pic/git/push本质-本地仓库.png)
 
 push操作的远程仓库:
 
-![push操作的远程仓库](pic/git/push本质-远端仓库.png)
+![push操作的远程仓库](../pic/git/push本质-远端仓库.png)
 
 ### 回看pull操作
 
@@ -229,10 +229,10 @@ pull的整个流程：首先执行```git fetch```，将远端镜像更新到本�
 
 pull操作前的远端仓库:
 
-![pull操作前的远端仓库](pic/git/pull本质-远端仓库.png)
+![pull操作前的远端仓库](../pic/git/pull本质-远端仓库.png)
 
 pull操作后的本地仓库:
-![pull操作后的本地仓库](pic/git/pull本质——pull后.png)
+![pull操作后的本地仓库](../pic/git/pull本质——pull后.png)
 
 ## 小结
 

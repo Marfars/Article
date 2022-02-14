@@ -40,13 +40,13 @@ checkout翻译为中文是查看，签出，在Git中它所承担的角色为```
 
 rebase中文翻译为变基，在GIT中它承担的角色主要是分支合并
 
-![rebase之前的分支](pic/git/rebase-before.png)
+![rebase之前的分支](../pic/git/rebase-before.png)
 
 分支合并？之前我们不是已经有了一个merge了吗？为什么还需要另一个分支合并指令？我们回想一下之前的merge指令，除了fast-forward的场景不会生成一个merge提交之外，都会生成一个merge提交。但是我们初学者往往会想，为什么不能将commit5和commit6直接放到commit4后面呢？这样也没有merge节点，看起来不是更好看吗？
 
 我们细想下，在合并之前，commit5的父提交（旧基础）是commit3，现在我们希望他的父提交是commit4（新基础），我们希望这个指令能够改变某个提交的基础，所以我们将其称之为变基——rebase，具体指令为```git rebase feature```。
 
-![rebase之后的分支](pic/git/after-rebase.png)
+![rebase之后的分支](../pic/git/after-rebase.png)
 
 欸(•_•)?不对啊，之前图里的commit5和commit6现在怎么变成commit5'和commit6'了？而且为什么commit5父提交还是commit3？解释这个问题我们就需要回想下之前对commit的理解：**commit一经生成，就无法再被改变了，同时commit哈希值的算法中包含了其父提交**。这么一解释，我们就理解了为什么不是commit5而是commit5'了。从commit5生成的那刻起，我们就没有办法对他进行修改，不管是amend追加还是rebase变基，都是在创建一个新的提交。只不过这个提交我们没有编辑提交信息，没有手动添加至暂存区。但是，它确确实实不再是之前的commit5了。rebase做的就是帮我重新复制了一份对应commit的提交内容，并生成了新的commit。如果想要验证这个想法，可以下次注意下rebase前后commit的hash值。作为唯一标识，hash值变了，就说明已经不再原来的commit了😲
 
@@ -54,7 +54,7 @@ rebase中文翻译为变基，在GIT中它承担的角色主要是分支合并
 
 reset的中文翻译是重置，在GIT中它所承担的角色主要是移动分支引用，回溯代码版本
 
-![reset之前的分支](pic/git/before-reset.png)
+![reset之前的分支](../pic/git/before-reset.png)
 
 reset默认会保留工作区之中的内容，如果加上--hard配置的话就会抹除工作区内容
 
@@ -68,11 +68,11 @@ amend的中文翻译是修正。它在GIT中承担角色是修改已经提交的
 
 amend前的git历史
 
-![amend前的git历史](pic/git/before-amend.png)
+![amend前的git历史](../pic/git/before-amend.png)
 
 amend后的git历史
 
-![amend后的git历史](pic/git/after-amend.png)
+![amend后的git历史](../pic/git/after-amend.png)
 
 其实还有很多场景可以被使用：代码code review没有通过，需要对上一个commit做出针对性的修改；上个commit信息描述有误，需要更换commit信息······随着我们使用git频率的提升，这些场景会越来越多，而amend就可以帮我们很轻松的解决这些问题
 
